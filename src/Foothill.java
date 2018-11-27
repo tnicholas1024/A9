@@ -30,50 +30,25 @@ class Student{
             return false;
         }
     }
+    //accessor (get)
+    int getSortKey(){return sortKey;}
 
-    boolean setSORT_BY_FIRST(int key){
-        if (key <= MAX_NUM && key >= MIN_NUM)
-        {
-            SORT_BY_FIRST = key;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    boolean setSORT_BY_LAST(int key){
-        if (key <= MAX_NUM && key >= MIN_NUM)
-        {
-            SORT_BY_LAST = key;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    boolean setSORT_BY_POINTS(int key){
-        if (key <= MAX_NUM && key >= MIN_NUM)
-        {
-            SORT_BY_POINTS = key;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
+    //modification
     public static int compareTwoStudents( Student firstStud, Student secondStud )
     {
         return 0;
     }
 
+    //change
+    public static double getMediaDestructive(Student[]array){
 
-    //accessor (get)
-    int getSortKey(){return sortKey;}
+        return 1.0;
+    }
 
-    //Modification
+   public String toString(){
+
+        return null;
+    }
 
 
 
