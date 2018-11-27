@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Foothill
 {
-    public static void main ()
+    public static void main()
     {
 
     }
@@ -13,10 +13,14 @@ class Student
     private String lastName;
     private String firstName;
     private int totalPoints;
+    private static int sortKey;
 
     public static final String DEFAULT_NAME = "zz-error";
     public static final int DEFAULT_POINTS = 0;
     public static final int MAX_POINTS = 1000;
+    public static final int SORT_BY_FIRST = 88;
+    public static final int SORT_BY_LAST = 98;
+    public static final int SORT_BY_POINTS = 108;
 
     // constructor requires parameters - no default supplied
     public Student( String last, String first, int points)
@@ -32,6 +36,19 @@ class Student
     public String getLastName() { return lastName; }
     public String getFirstName() { return firstName; }
     public int getTotalPoints() { return totalPoints; }
+    public static int getSortKey(){return sortKey;} //MODIFICATION
+
+    //MODIFICATION
+    public static boolean setSortKey(int key){
+        if(key >= DEFAULT_POINTS && key <= MAX_POINTS) {
+            sortKey = key;
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
 
     public boolean setLastName(String last)
     {
@@ -68,6 +85,7 @@ class Student
         return result;
     }
 
+
     public String toString()
     {
         String resultString;
@@ -97,6 +115,8 @@ class Student
     }
 }
 
+
+// **the StudentArrayUtilities Class**
 class StudentArrayUtilities
 {
     // print the array with string as a title for the message box
