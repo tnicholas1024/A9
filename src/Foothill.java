@@ -1,20 +1,39 @@
-import javax.swing.*;
 
 public class Foothill
 {
     public static void main (String[] args)
     {
-        Student[] myClass = {
-                new Student("smith","fred", 95),
-                new Student("bauer","jack",123),
-                new Student("jacobs","carrie", 195),
-                new Student("renquist","abe",148),
+        Student[] evenClass = {
+                new Student("lee","stan", 95),
+                new Student("hamill","mark",123),
+                new Student("fisher","carrie", 195),
+                new Student("ford","harrison",148),
 
         };
+        Student[] oddClass = {
+                new Student("lee","stan", 95),
+                new Student("hamill","mark",123),
+                new Student("fisher","carrie", 195),
+                new Student("ford","harrison",148),
+                new Student("ridley", "daisy", 132)
 
-        StudentArrayUtilities.toString("Before: ", myClass);
-        StudentArrayUtilities.arraySort(myClass);
-        StudentArrayUtilities.toString("After: ", myClass);
+        };
+        Student[] smallClass = {
+                new Student("lee","stan", 95),
+                new Student("hamill","mark",123),
+        };
+        Student[] noClass = {
+
+        };
+        StudentArrayUtilities.toString("Before: ", evenClass);
+        StudentArrayUtilities.toString("(DEFAULT) After: ", evenClass);
+        StudentArrayUtilities.arraySort(evenClass);
+        StudentArrayUtilities.toString("(FIRST) After: ", evenClass);
+        StudentArrayUtilities.toString("(TOTAL) After: ", evenClass);
+
+        StudentArrayUtilities.getMedianDestructive(evenClass);
+        Student.getSortKey();
+
     }
 }
 
@@ -145,8 +164,10 @@ class StudentArrayUtilities
         String output = "";
 
         // build the output string from the individual Students:
-        for (int k = 0; k < data.length; k++)
+        for (int k = 0; k < data.length; k++){
             output += " " + data[k].toString();
+            return;
+        }
 
     }
 
@@ -213,4 +234,6 @@ class StudentArrayUtilities
 
         return median;
     }
+
+
 }
