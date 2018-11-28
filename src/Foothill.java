@@ -2,18 +2,32 @@ import javax.swing.*;
 
 public class Foothill
 {
-    public static void main()
+    public static void main (String[] args)
     {
+        Student[] myClass = { new Student("smith","fred", 95),
+                new Student("bauer","jack",123),
+                new Student("jacobs","carrie", 195),
+                new Student("renquist","abe",148),
+                new Student("3ackson","trevor", 108),
+                new Student("perry","fred",225),
+                new Student("loceff","fred", 44),
+                new Student("stollings","pamela",452),
+                new Student("charters","rodney", 295),
+                new Student("cassar","john",321),
+        };
 
+        StudentArrayUtilities.printArray("Before: ", myClass);
+        StudentArrayUtilities.arraySort(myClass);
+        StudentArrayUtilities.printArray("After: ", myClass);
     }
 }
 
 class Student
 {
+    private static int sortKey;
     private String lastName;
     private String firstName;
     private int totalPoints;
-    private static int sortKey;
 
     public static final String DEFAULT_NAME = "zz-error";
     public static final int DEFAULT_POINTS = 0;
@@ -74,14 +88,22 @@ class Student
         return true;
     }
 
-    // could be an instance method and, if so, would take one parameter
     public static int compareTwoStudents( Student firstStud, Student secondStud )
     {
-        int result;
-
-        // this particular version based on last name only (case insensitive)
-        result = firstStud.lastName.compareToIgnoreCase(secondStud.lastName);
-
+        int result = 0;
+        //this switch statement tests several different possibilities like first, last, and points.
+        switch (Student.getSortKey()){
+            case SORT_BY_FIRST:
+                result = firstStud.getFirstName().compareToIgnoreCase(secondStud.getFirstName());
+                break;
+            case SORT_BY_LAST:
+                result = firstStud.getLastName().compareToIgnoreCase(secondStud.getLastName());
+                break;
+            case SORT_BY_POINTS:
+                result = firstStud.getTotalPoints() - secondStud.getTotalPoints();
+                break;
+        }
+        //if none of the cases criteria are met then just return result as 0.
         return result;
     }
 
