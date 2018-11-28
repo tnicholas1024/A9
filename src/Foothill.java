@@ -4,21 +4,17 @@ public class Foothill
 {
     public static void main (String[] args)
     {
-        Student[] myClass = { new Student("smith","fred", 95),
+        Student[] myClass = {
+                new Student("smith","fred", 95),
                 new Student("bauer","jack",123),
                 new Student("jacobs","carrie", 195),
                 new Student("renquist","abe",148),
-                new Student("3ackson","trevor", 108),
-                new Student("perry","fred",225),
-                new Student("loceff","fred", 44),
-                new Student("stollings","pamela",452),
-                new Student("charters","rodney", 295),
-                new Student("cassar","john",321),
+
         };
 
-        StudentArrayUtilities.printArray("Before: ", myClass);
+        StudentArrayUtilities.toString("Before: ", myClass);
         StudentArrayUtilities.arraySort(myClass);
-        StudentArrayUtilities.printArray("After: ", myClass);
+        StudentArrayUtilities.toString("After: ", myClass);
     }
 }
 
@@ -36,7 +32,7 @@ class Student
     public static final int SORT_BY_LAST = 98;
     public static final int SORT_BY_POINTS = 108;
 
-    // constructor requires parameters - no default supplied
+    // parameter taking constructor
     public Student( String last, String first, int points)
     {
         if ( !setLastName(last) )
@@ -144,7 +140,7 @@ class StudentArrayUtilities
     // print the array with string as a title for the message box
     // this is somewhat controversial - we may or may not want an I/O
     // methods in this class.  we'll accept it today
-    public static void printArray(String title, Student[] data)
+    public static void toString(String title, Student[] data)
     {
         String output = "";
 
@@ -152,9 +148,6 @@ class StudentArrayUtilities
         for (int k = 0; k < data.length; k++)
             output += " " + data[k].toString();
 
-        // now put it in a JOptionPane
-        JOptionPane.showMessageDialog( null, output, title,
-                JOptionPane.OK_OPTION);
     }
 
     // returns true if a modification was made to the array
@@ -182,5 +175,42 @@ class StudentArrayUtilities
             // compare with method def to see where inner loop stops
             if ( !floatLargestToTop(array, array.length - 1 - k) )
                 return;
+    }
+
+    public static double getMedianDestructive(Student[] array)
+    {
+        // remember users sortKey
+        int rememberKey;
+        rememberKey = Student.getSortKey();
+
+        double middleLeft, middleRight;
+        double median = 0.0;
+
+        Student.setSortKey(Student.SORT_BY_POINTS);
+        arraySort(array);
+
+        if (array.length == 0)
+            return median; //returns 0.0
+
+        if (array.length == 1)
+        {
+            median = array[0].getTotalPoints();
+            return median; //returns 0.0
+        }
+        if (array.length % 2 == 0)
+        {
+            middleLeft = array[(array.length/2)-1].getTotalPoints();
+            middleRight = array[(array.length/2)].getTotalPoints();
+
+            median = (middleLeft + middleRight)/2.;
+        }
+
+        if ((array.length % 2) == 1)
+            median = array[array.length/2].getTotalPoints();
+
+        // reset the sortKey
+        Student.setSortKey(rememberKey);
+
+        return median;
     }
 }
