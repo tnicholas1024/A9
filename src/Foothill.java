@@ -1,3 +1,4 @@
+//Tiffany Nicholas -- Lab Assignment 9: Changing Sort Keys.
 import javax.swing.*;
 public class Foothill
 {
@@ -39,16 +40,18 @@ public class Foothill
         arraySixteenStud[15] = new Student("Andrew", "Bogart", 231);
 
         //initial display
-       StudentArrayUtilities.toString("Array of 16 before sort", arrayFifteenStud);
+        System.out.println("Array of 15 before sort: ");
+       StudentArrayUtilities.toString("Array of 15 before sort", arrayFifteenStud);
 
 
         // initial sort display
         StudentArrayUtilities.arraySort(arraySixteenStud);
-        
+        System.out.println("Array of 16 after initial sort: ");
         StudentArrayUtilities.toString("Array of 16 after "
                 + "initial sort: ", arraySixteenStud);
         
         // firstName sort and display
+        System.out.println("Array of 16 after firstName sort: ");
         Student.setSortKey(Student.SORT_BY_FIRST);
         StudentArrayUtilities.arraySort(arraySixteenStud);
         
@@ -56,6 +59,7 @@ public class Foothill
                 + "first name sort: ", arraySixteenStud);
       
         // totalPoints sort and display
+        System.out.println("Array of 16 after totalPoints sort: ");
         Student.setSortKey(Student.SORT_BY_POINTS);
         StudentArrayUtilities.arraySort(arraySixteenStud);
         
@@ -216,9 +220,7 @@ class Student
 // **the StudentArrayUtilities Class**
 class StudentArrayUtilities
 {
-    // print the array with string as a title for the message box
-    // this is somewhat controversial - we may or may not want an I/O
-    // methods in this class.  we'll accept it today
+
     public static void toString(String title, Student[] data)
     {
         String output = "";
