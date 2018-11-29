@@ -39,33 +39,30 @@ public class Foothill
         arraySixteenStud[15] = new Student("Andrew", "Bogart", 231);
 
         //initial display
-        //output
        StudentArrayUtilities.toString("Array of 16 before sort", arrayFifteenStud);
 
-/*
+
         // initial sort display
         StudentArrayUtilities.arraySort(arraySixteenStud);
-        //output
+        
         StudentArrayUtilities.toString("Array of 16 after "
                 + "initial sort: ", arraySixteenStud);
-        System.out.println(outputStr);
-
+        
         // firstName sort and display
         Student.setSortKey(Student.SORT_BY_FIRST);
         StudentArrayUtilities.arraySort(arraySixteenStud);
-        //output
+        
         StudentArrayUtilities.toString("Array of 16 after "
                 + "first name sort: ", arraySixteenStud);
-        System.out.println(outputStr);
-
+      
         // totalPoints sort and display
         Student.setSortKey(Student.SORT_BY_POINTS);
         StudentArrayUtilities.arraySort(arraySixteenStud);
-        //output
+        
         StudentArrayUtilities.toString("Array of 16 after "
                 + "total points sort: ", arraySixteenStud);
-        System.out.println(outputStr);
-*/
+        
+
         //median destructive
         Student.setSortKey(Student.SORT_BY_FIRST);
         median = StudentArrayUtilities.getMedianDestructive(arraySixteenStud);
@@ -230,6 +227,7 @@ class StudentArrayUtilities
         for (int k = 0; k < data.length; k++){
             output += " " + data[k].toString();
         }
+        System.out.println(output);
 
     }
 
@@ -299,23 +297,3 @@ class StudentArrayUtilities
 
 
 }
-
-/*-------------------------------OUTPUT-------------------------------
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *--------------------------------------------------------------------
- */
