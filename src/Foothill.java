@@ -299,3 +299,89 @@ class StudentArrayUtilities
 
 
 }
+
+/*    OUTPUT
+
+Array of 15 before sort: 
+  Kelsey, Robbins points: 2
+  Tiffany, Lewis points: 933
+  George, Barkett points: 212
+  Jim, Kosturos points: 100
+  James, Nicholas points: 721
+  Hillary, Sanders points: 480
+  Lex, Sullivan points: 634
+  Lauren, Sosa points: 128
+  Billy, MacIntosh points: 91
+  Samantha, McMullen points: 318
+  Alice, Curry points: 222
+  Stephen, Thompson points: 43
+  Doug, Azure points: 872
+  Holly, Wallis points: 652
+  Billie, Holiday points: 119
+
+Array of 16 after initial sort: 
+  Kelsey, Robbins points: 2
+  Tiffany, Lewis points: 933
+  George, Barkett points: 212
+  Jim, Kosturos points: 100
+  James, Nicholas points: 721
+  Hillary, Sanders points: 480
+  Lex, Sullivan points: 634
+  Lauren, Sosa points: 128
+  Billy, MacIntosh points: 91
+  Samantha, McMullen points: 318
+  Alice, Curry points: 222
+  Stephen, Thompson points: 43
+  Doug, Azure points: 872
+  Holly, Wallis points: 652
+  Billie, Holiday points: 119
+  Andrew, Bogart points: 231
+
+Array of 16 after firstName sort: 
+  Doug, Azure points: 872
+  George, Barkett points: 212
+  Andrew, Bogart points: 231
+  Alice, Curry points: 222
+  Billie, Holiday points: 119
+  Jim, Kosturos points: 100
+  Tiffany, Lewis points: 933
+  Billy, MacIntosh points: 91
+  Samantha, McMullen points: 318
+  James, Nicholas points: 721
+  Kelsey, Robbins points: 2
+  Hillary, Sanders points: 480
+  Lauren, Sosa points: 128
+  Lex, Sullivan points: 634
+  Stephen, Thompson points: 43
+  Holly, Wallis points: 652
+
+Array of 16 after totalPoints sort: 
+  Kelsey, Robbins points: 2
+  Stephen, Thompson points: 43
+  Billy, MacIntosh points: 91
+  Jim, Kosturos points: 100
+  Billie, Holiday points: 119
+  Lauren, Sosa points: 128
+  George, Barkett points: 212
+  Alice, Curry points: 222
+  Andrew, Bogart points: 231
+  Samantha, McMullen points: 318
+  Hillary, Sanders points: 480
+  Lex, Sullivan points: 634
+  Holly, Wallis points: 652
+  James, Nicholas points: 721
+  Doug, Azure points: 872
+  Tiffany, Lewis points: 933
+
+The median of the array of sixteen students is : 226.5
+
+The sort key of the Student class after call to getMedianDestructive() is: 88
+(Sort key has been preserved!)
+
+The median score of the array of 15 is: 222.0
+
+The median score of the array of 1 is: 622.0
+
+The median score of the array of 0 is: 0.0
+
+*/
