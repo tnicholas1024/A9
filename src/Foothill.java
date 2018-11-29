@@ -1,40 +1,103 @@
-
+import javax.swing.*;
 public class Foothill
 {
     public static void main (String[] args)
     {
-        Student[] evenClass = {
-                new Student("lee","stan", 95),
-                new Student("hamill","mark",123),
-                new Student("fisher","carrie", 195),
-                new Student("ford","harrison",148),
+        double median;
+        String outputStr;
+        //array setup
+        Student[] arrayZeroStud = new Student[0];
 
-        };
-        Student[] oddClass = {
-                new Student("lee","stan", 95),
-                new Student("hamill","mark",123),
-                new Student("fisher","carrie", 195),
-                new Student("ford","harrison",148),
-                new Student("ridley", "daisy", 132)
+        Student[] arrayOneStud = new Student[1];
+        arrayOneStud[0] = new Student("Anthony", "Jacobs", 622);
 
-        };
-        Student[] smallClass = {
-                new Student("lee","stan", 95),
-                new Student("hamill","mark",123),
-        };
-        Student[] noClass = {
+        Student[] arrayFifteenStud =
+                {
+                        new Student("Kelsey", "Robbins", 2),
+                        new Student("Tiffany", "Lewis", 933),
+                        new Student("George", "Barkett", 212),
+                        new Student("Jim", "Kosturos", 100),
+                        new Student("James", "Nicholas", 721),
+                        new Student("Hillary", "Sanders", 480),
+                        new Student("Lex", "Sullivan", 634),
+                        new Student("Lauren", "Sosa", 128),
+                        new Student("Billy", "MacIntosh", 91),
+                        new Student("Samantha", "McMullen", 318),
+                        new Student("Alice", "Curry", 222),
+                        new Student("Stephen", "Thompson", 43),
+                        new Student("Doug", "Azure",872),
+                        new Student("Holly", "Wallis",652),
+                        new Student("Billie", "Holiday",119)
+                };
+        Student[] arraySixteenStud;
+        arraySixteenStud = new Student[16];
 
-        };
-        StudentArrayUtilities.toString("Before: ", evenClass);
-        StudentArrayUtilities.toString("(DEFAULT) After: ", evenClass);
-        StudentArrayUtilities.arraySort(evenClass);
-        StudentArrayUtilities.toString("(FIRST) After: ", evenClass);
-        StudentArrayUtilities.toString("(TOTAL) After: ", evenClass);
+        for (int i = 0; i < 15; i++)
+        {
+            arraySixteenStud[i] = arrayFifteenStud[i];
+        }
+        arraySixteenStud[15] = new Student("Andrew", "Bogart", 231);
 
-        StudentArrayUtilities.getMedianDestructive(evenClass);
-        Student.getSortKey();
+        //initial display
+        //output
+       StudentArrayUtilities.toString("Array of 16 before sort", arrayFifteenStud);
 
+/*
+        // initial sort display
+        StudentArrayUtilities.arraySort(arraySixteenStud);
+        //output
+        StudentArrayUtilities.toString("Array of 16 after "
+                + "initial sort: ", arraySixteenStud);
+        System.out.println(outputStr);
+
+        // firstName sort and display
+        Student.setSortKey(Student.SORT_BY_FIRST);
+        StudentArrayUtilities.arraySort(arraySixteenStud);
+        //output
+        StudentArrayUtilities.toString("Array of 16 after "
+                + "first name sort: ", arraySixteenStud);
+        System.out.println(outputStr);
+
+        // totalPoints sort and display
+        Student.setSortKey(Student.SORT_BY_POINTS);
+        StudentArrayUtilities.arraySort(arraySixteenStud);
+        //output
+        StudentArrayUtilities.toString("Array of 16 after "
+                + "total points sort: ", arraySixteenStud);
+        System.out.println(outputStr);
+*/
+        //median destructive
+        Student.setSortKey(Student.SORT_BY_FIRST);
+        median = StudentArrayUtilities.getMedianDestructive(arraySixteenStud);
+        outputStr = "The median of the array of sixteen students is : "
+                + median;
+        System.out.println(outputStr);
+
+        // output sorkKey to show it is unchanged
+        outputStr = "\nThe sort key of the Student class after call to "
+                + "getMedianDestructive() is: " + Student.getSortKey();
+        System.out.println(outputStr);
+        if (Student.getSortKey() == Student.SORT_BY_FIRST)
+            System.out.println("(Sort key has been preserved!)");
+        else
+            System.out.println("(Sort key has not been preserved!!)");
+
+        //median of array of 15
+        median = StudentArrayUtilities.getMedianDestructive(arrayFifteenStud);
+        outputStr = "\nThe median score of the array of 15 is: " + median;
+        System.out.println(outputStr);
+
+        // median of array of 1
+        median = StudentArrayUtilities.getMedianDestructive(arrayOneStud);
+        outputStr = "\nThe median score of the array of 1 is: " + median;
+        System.out.println(outputStr);
+
+        // median of array of 0
+        median = StudentArrayUtilities.getMedianDestructive(arrayZeroStud);
+        outputStr = "\nThe median score of the array of 0 is: " + median;
+        System.out.println(outputStr);
     }
+
 }
 
 class Student
@@ -166,7 +229,6 @@ class StudentArrayUtilities
         // build the output string from the individual Students:
         for (int k = 0; k < data.length; k++){
             output += " " + data[k].toString();
-            return;
         }
 
     }
@@ -237,3 +299,23 @@ class StudentArrayUtilities
 
 
 }
+
+/*-------------------------------OUTPUT-------------------------------
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *--------------------------------------------------------------------
+ */
